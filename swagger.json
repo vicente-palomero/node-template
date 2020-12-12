@@ -1,0 +1,95 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Node JS backend",
+    "description": "Node JS backend Rest API",
+    "license": {}
+  },
+  "host": "localhost:3000",
+  "basepath": "/",
+  "tags": [
+    {
+      "name": "Contacts",
+      "description": "API endpoint for handling Contact messages"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/contacts": {
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "description": "Post a contact",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "description": "Name of the contacting person",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "description": "E-mail of the contacting person",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          },
+          {
+            "name": "message",
+            "in": "body",
+            "description": "Contacting message",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "required": [
+        "name",
+        "email",
+        "message"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the contacting person"
+        },
+        "email": {
+          "type": "string",
+          "description": "The email of the contacting person"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message of the contacting person"
+        }
+      },
+      "example": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "message": "Hello, I would like to get more information"
+      }
+    }
+  }
+}
